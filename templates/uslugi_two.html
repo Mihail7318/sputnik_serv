@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Достижения{% endblock %}
+
+
+{% block content%}
+	<div class="container ">
+  <div class="card border-light">
+    <div class="card-header bg-light"><img src="{% static "images/info.png"%}">
+    Достижения
+  </div>
+  <br>
+      {% if usl %}
+          
+  <div class="card-body text-primary">
+    
+    <div class="row">
+      {% for d in usl %}
+       <div class="col-md-4" style="padding: 22px">
+    <div class="thumbnail">
+      <a href="{{ MEDIA_URL }}{{ d.file.url }}">
+        <img src="{{ MEDIA_URL }}{{ d.file.url }}" alt="Lights" style="width:100%">
+      </a>
+    </div>
+  </div>
+  {% endfor %}
+     </div>
+         </div>
+
+    {% endif %}
+<br>
+</div>
+</div>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+</body>
+</html>

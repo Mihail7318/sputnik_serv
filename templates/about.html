@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    {% block title %}Обратная связь{% endblock %}
+<div class="container">
+<div class="card border-primary" id="now">
+  <div class="card-header bg-primary" >Обратная связь</div>
+  <div class="card-body">
+  	{% if name %}
+  	<div class="alert alert-success" role="alert">
+  Уважаемый(ая) {{ name }} ваше сообщение принято
+</div>
+  	{% endif %}
+  	<form method="POST" >
+    {% csrf_token %}
+    <table>
+    {{ form.as_table }}
+    </table>
+    <input type="submit" value="Отправить" class="btn btn-success">
+    {% for error in field.errors %}
+    <div class="alert alert-danger">{{error}}</div>
+{% endfor %}
+</form>
+   
+  </div>
+</div>
+</div>
+{% endblock %}

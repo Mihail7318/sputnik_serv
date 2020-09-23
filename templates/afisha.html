@@ -1,0 +1,32 @@
+{% load static %}
+
+{% if afisha %}
+<div class="card border-light">
+  <div class="card-header border-info"><a href="{% url "afisha" %}">Афиша</a></div>
+
+  <div class="card-body text-primary">
+
+{% for e in afisha %}
+  	<div class="card mb-3" style="border-width: 0; border-bottom-width: 2px;">
+
+  <div class="row no-gutters">
+
+    <div class="col-md-4 align-middle">
+      <img src="{{ e.imagekin }}" class="card-img " alt="{{ e.title }}">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <a href="/afisha" class="card-title" style="font-size: 12pt">{{ e.title }}</a>
+        <p class="card-text" style="font-size: 12pt; color: red"><img style="width: 15px; height: 15px" src="{% static "images/clock.png"%}"> {{ e.time }}</p>
+        <p class="card-text" style="font-size: 12pt; color: gray"> {{ e.age }}+</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+    </div>
+
+    </div>
+
+
+{% endif %}

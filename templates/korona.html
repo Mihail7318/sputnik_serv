@@ -1,0 +1,13 @@
+{% load static %}
+{% if info %}
+{% for i in info %}
+<div class="card border-danger">
+  <div class="card-header border-danger bg-color-danger"><a href="https://www.rospotrebnadzor.ru/about/info/news_time/news_details.php?ELEMENT_ID=13566"><img src="{% static "images/korona.png"%}">{{ i.title }}</a></div>
+  <div class="card-body text-primary">
+ 	<div class="card-text">
+ 		{{ i.text  | safe }}
+ 	</div>
+  </div>
+</div>
+{% endfor %}
+{% endif %}

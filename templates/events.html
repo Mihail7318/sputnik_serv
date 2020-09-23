@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Мероприятия{% endblock %}
+{% block content %}
+
+<br>
+<div class="container">
+	<div class="row">
+    <div class="col-md-1"></div>
+<div class="col">
+<div class="card border-primary">
+  <div class="card-header bg-light" style="font-size: 14pt;">Мероприятия</div>
+  <div class="card-body">
+    <ul class="list-unstyled">
+      {% if events %}
+      {% for e in events %}
+  <li class="media" >
+    <img src="{{ MEDIA_URL }}{{ e.image.url }}" class="mr-2" alt="..." style="height: 250px; width: 300px; border-radius: 10px;">
+    <div class="media-body">
+      <a href="{{ e.id }}"><h5 class="mt-0 mb-1">{{ e.event_title }}</h5></a>
+      <div class="row">
+        <div class="col">
+      {{ e.event_text | safe | truncatewords_html:35 }}
+        </div>
+      </div>
+        <div class="row"><div class="col-md-4"><p class="text-center bg-primary" style="font-size: 12pt; color: white; border-radius: 10px">{{ e.date }}</p></div></div>
+
+    </div>
+  </li>
+  <br><br>
+  {% endfor %}
+  {% endif %}
+</ul>
+  </div>
+</div>
+</div>
+<div class="col-md-1"></div>
+</div>
+</div>
+<br><br>
+{% endblock %}
+

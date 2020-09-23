@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Достижения{% endblock %}
+
+
+{% block content%}
+	{% if usl %}
+          {% for d in usl %}
+	<div class="container ">
+  <div class="card border-light">
+    <div class="card-header bg-light"><img src="{% static "images/info.png"%}">
+   {{ d.title }}
+  </div>
+  <br>
+  <div class="card-body text-dark">
+    <h1>jkfskgfhk</h1>
+  	{{ d.text | safe}}
+{% if d.file %}
+        <a href="{{ d.file.url }}"><p>{{ d.title }}</p></a>
+  		{% endif %}
+  		
+        
+</div>
+<br>
+</div>
+</div>
+{% endfor %}
+    {% endif %}
+{% endblock %}
+
+
+
+
+
+
+
+
+
+</body>
+</html>

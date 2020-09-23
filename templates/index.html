@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block title %} Главная страница {% endblock %}
+{% block content %}
+{% include "merop.html" %}
+
+<style>
+  #wer{
+    object-fit: cover;
+    width: 300px;
+    height: 250px;
+  }
+</style>
+<br>
+<div class="container">
+
+
+
+	<div class="row">
+<div class="col-md-8">
+<div class="card border-primary" id="now">
+  <div class="card-header bg-primary" >Новости</div>
+  <div class="card-body">
+
+   
+
+    <ul class="list-unstyled">
+      {% if articels %}
+      {% for news in articels %}
+  <li class="media" >
+    <div class="row">
+    <div class="col-md-6">
+    <img src="{{ MEDIA_URL }}{{ news.image.url }}" class="mr-2" alt="..."  id="wer">
+    </div>
+    <div class="col">
+      <a href="news/{{ news.id }}" style="text-decoration: none; color: black;"><h5 class="mt-0 mb-1">{{ news.title }}</h5></a>
+      <p class="card-text">{{ news.text | safe | truncatewords_html:15 }}</p>
+       <a href="news/{{ news.id }}" class="card-link">Читать далее...</a>
+    </div></div>
+  </li>
+  <br><br>
+  {% endfor %}
+  {% endif %}
+</ul>
+  <a href="news">Читать больше...</a>
+  </div>
+</div>
+</div>
+
+
+
+<div class="col-md-4">
+  {% if vid %}
+  {% include "video.html" %}
+  {% endif %}
+  {% include "korona.html" %}
+  <br>
+  
+{% include "afisha.html" %}
+
+<br>
+{% if holiday %}
+<div class="card border-light">
+  <div class="card-header border-info">Праздники</div>
+  <div class="card-body text-primary">
+
+    {% for h  in holiday %}
+  	<div class="card mb-3" style="border-width: 0; border-bottom-width: 2px;">
+  <div class="row no-gutters">
+    <div class="col-md-4 align-middle">
+      <img src="{{ MEDIA_URL }}{{ h.image.url }}" class="card-img " alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <a href="afisha/{{ h.id }}" class="card-title" style="font-size: 12pt">{{ h.title }}</a>
+        <p class="card-text" style="font-size: 8pt">{{ h.date_h }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+     {% endfor %}
+
+</div>
+</div>
+</div>
+{% endif %}
+</div>
+
+
+</div>
+</div>
+<br><br>
+
+<script>
+  $(function () {
+    $('#now').tab('show')
+  })
+</script>
+{% endblock %}
+
+

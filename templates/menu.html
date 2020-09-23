@@ -1,0 +1,89 @@
+{% load static %}
+
+{% block menu %}
+<nav id="m_nu" class="nav nav-pills nav-fill bg-light">
+ <li class="nav-item active">
+        <a class="nav-link" href="/" id="tab">Главная<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/info" id="tab">Информация о нас</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url "news" %}" id="tab">Новости</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Кинотеатр
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" id="tab" href="{% url "afisha" %}">Афиша</a>
+
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/document" id="tab">Документы</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/usl">Достижения</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/about">Контакты</a>
+      </li>
+</nav>
+
+<script>
+    a = document.location.href;
+
+    var b = '';
+    var c = 0;
+
+    for (var i = 6; i < a.length; i++) {
+      if (a[i] == "/") { c += 1;}
+      if (a[i] == "/" && c == 2) {
+        for (var j = i+1; j < a.length; j++) {
+          b += a[j];
+        }
+        break;
+      }
+    }
+
+
+ switch (b) {
+  case '':
+    $("a[href='/']").addClass('active');
+    break;
+  case 'info':
+    $("a[href^='/info']").addClass('active');
+    $("title").html($("a[href^='/info']").html());
+    break;
+  case 'news/':
+    $("a[href^='/news/']").addClass('active');
+    $("title").html($("a[href^='/news/']").html());
+    break;
+  case 'afisha/':
+    $("a[href^='/afisha/']").addClass('active');
+    $("title").html($("a[href^='/afisha/']").html());
+    break;
+  case 'anons':
+    $("a[href^='/anons']").addClass('active');
+    $("title").html($("a[href^='/anons']").html());
+    break; 
+  case 'document/':
+    $("a[href^='/document']").addClass('active');
+    $("title").html($("a[href^='/document']").html());
+    break; 
+  case 'usl':
+    $("a[href^='/usl']").addClass('active');
+    $("title").html($("a[href^='/usl']").html());
+    break; 
+  case 'about':
+    $("a[href^='/about']").addClass('active');
+    $("title").html($("a[href^='/about']").html());
+    break; 
+
+}
+
+</script>
+{% endblock %}
+
+

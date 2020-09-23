@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Информация{% endblock %}
+{% block menu %}
+<nav id="m_nu" class="nav nav-pills nav-fill bg-light">
+ <li class="nav-item active">
+        <a class="nav-link" href="/">Главная<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="/info">Информация о нас</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url "news" %}">Новости</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Кинотеатр
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{% url "afisha" %}">Афиша</a>
+          <a class="dropdown-item" href="{% url "anons" %}">Анонсы</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Документы</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Услуги</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Контакты</a>
+      </li>
+</nav>
+{% endblock %}
+
+{% block content%}
+	<div class="container ">
+  <div class="card border-light">
+    <div class="card-header bg-light"><img src="{% static "images/info.png"%}">
+    Информация о нас
+  </div>
+  <br>
+  <div class="card-body text-primary">
+    <div class="row">
+      <div class="col-md-1"><img src="{% static "images/file.png"%}"></div>
+      <div class="col">
+        <a href="{% static "media/document/Список-специалистов-РДК (2).docx" %}"><p>МУНИЦИПАЛЬНОЕ УЧРЕЖДЕНИЕ КУЛЬТУРЫ «МУНИЦИПАЛЬНЫЙ КУЛЬТУРНЫЙ КОМПЛЕКС» АДМИНИСТРАЦИИ МУНИЦИПАЛЬНОГО ОБРАЗОВАНИЯ «СЕНГИЛЕЕВСКИЙ РАЙОН» Список-специалистов-РДК </p></a>
+      </div>
+    </div>
+    
+</div>
+<br>
+</div>
+</div>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+</body>
+</html>

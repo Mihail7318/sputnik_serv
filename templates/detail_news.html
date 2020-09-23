@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load static %}
+{% if data %}
+{% block title %}{{ data.title }}{% endblock %}
+{% endif %}
+{% block content %}
+
+<br>
+<div class="container">
+	<div class="row">
+    <div class="col-md-1"></div>
+<div class="col">
+<div class="card border-primary">
+  {% if data %}
+  <div class="card-header bg-light" style="font-size: 14pt;"><b>{{ data.title }}</b></div>
+  <div class="card-body">
+    <ul class="list-unstyled">
+      <div class="row">
+       <div class="thumbnail">
+    <img src="{{ MEDIA_URL }}{{ data.image.url }}" class="mr-2" alt="..." style="height: 450px; width: 550px; border-radius: 10px;">
+    </div>
+    <div class="col-4">
+
+ {% if read %}
+    Читайте также...
+
+  <ul class="list-group list-group-flush">
+    {% for i  in read %}
+    <a href="{{ i.id }}" class="list-group-item">{{ i.title }}</a>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+    </div>
+    </div>
+    <br>
+    <hr>
+    <div class="media-body">
+
+      <div class="row">
+        <div class="col">
+      {{ data.text | safe}}
+        </div>
+      </div>
+<hr>
+       <div class="row">
+{% for i in data.list_img.all %}
+  <div class="col-md-4">
+    <div class="thumbnail">
+      <a href="{{ MEDIA_URL }}{{ i.image.url }}">
+        <img src="{{ MEDIA_URL }}{{ i.image.url }}" alt="Lights" style="width:100%">
+      </a>
+    </div>
+  </div>
+   {% endfor %}
+</div>
+
+
+<hr>
+
+        <div class="row"><div class="col-md-3"><p class="text-center bg-primary" style="font-size: 12pt; color: white; border-radius: 10px">{{ e.date_a }}</p></div></div>
+
+    </div>
+
+  <br><br>
+  
+</ul>
+  </div>
+  {% endif %}
+</div>
+</div>
+<div class="col-md-1"></div>
+</div>
+</div>
+<br><br>
+{% endblock %}

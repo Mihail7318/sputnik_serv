@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Документы{% endblock %}
+
+
+{% block content%}
+	<div class="container ">
+  <div class="card border-light">
+    <div class="card-header bg-light"><img src="{% static "images/info.png"%}">
+    Документы
+  </div>
+  <br>
+      {% if doc %}
+          {% for d in doc %}
+  <div class="card-body text-primary">
+    <div class="row">
+      <div class="col-md-1"><img src="{% static "images/file.png"%}"></div>
+      <div class="col">
+        <a href="{{ d.file.url }}"><p>{{ d.title }}</p></a>
+      </div>
+    </div>
+    </div>
+          {% endfor %}
+    {% endif %}
+
+<br>
+</div>
+</div>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+</body>
+</html>

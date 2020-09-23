@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Анонс{% endblock %}
+{% block menu %}
+<nav id="m_nu" class="nav nav-pills nav-fill bg-light">
+ <li class="nav-item active">
+        <a class="nav-link" href="#">Главная<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/info">Информация о нас</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url "news" %}">Новости</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Кинотеатр
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{% url "afisha" %}">Афиша</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Документы</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Услуги</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Контакты</a>
+      </li>
+</nav>
+{% endblock %}
+
+{% block content %}
+
+
+<br>
+<div class="container">
+
+	<div class="row">
+    <div class="col-md-1"></div>
+<div class="col">
+<div class="card border-primary">
+  <div class="card-header bg-light" style="font-size: 14pt;">Анонсы</div>
+  <div class="card-body">
+
+    <div class="media bg-light">
+      <div class="row">
+        <div class="col-4">
+          <img style="width: 300px; height: 400px" src="{% static "images/2.png" %}">
+        </div>
+        <div class="col-8">
+          <div class="row">
+            <div class="col"></div>
+            <div class="col-8">
+              <p class="h4">Артур и Мерлин: Рыцари Камелота</p>
+              <p class="text-muted">Великобритания, реж. Джиллз Алдерсон (боевик, приключения, история)</p>
+              <small class="text-muted">Ричард Брэйк, Ричард Шорт, ...</small>
+              <br>
+              <br>
+              <p>Измученный войной Король Артур возвращается в Камелот после десятилетий борьбы с Римской империей. Но в его отсутствие его незаконнорожденный сын Мордред объявил себя королём и стал притязать на королеву Гвиневеру. Артур вместе с верными рыцарями Круглого стола вновь должен сражаться, чтобы вернуть свою корону. Но придет ли на помощь Мерлин? И как далеко может зайти король ради спасения чести своей королевы?</p>
+            </div>
+            <div class="col-3">
+              <div class="bg-light">
+              <h1 class="text-center">26</h1>
+              <p class="text-center">Апреля</p>
+            </div>
+            <a href="video/" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Трейлер</a>
+
+            </div>
+          </div>
+          <div class="row">
+            <div class="col"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+
+    <div class="media bg-light">
+      <div class="row">
+        <div class="col-4">
+          <img style="width: 300px; height: 400px" src="{% static "images/2.png" %}">
+        </div>
+        <div class="col-8">
+          <div class="row">
+            <div class="col"></div>
+            <div class="col-8">
+              <p class="h4">Артур и Мерлин: Рыцари Камелота</p>
+              <p class="text-muted">Великобритания, реж. Джиллз Алдерсон (боевик, приключения, история)</p>
+              <small class="text-muted">Ричард Брэйк, Ричард Шорт, ...</small>
+              <br>
+              <br>
+              <p>Измученный войной Король Артур возвращается в Камелот после десятилетий борьбы с Римской империей. Но в его отсутствие его незаконнорожденный сын Мордред объявил себя королём и стал притязать на королеву Гвиневеру. Артур вместе с верными рыцарями Круглого стола вновь должен сражаться, чтобы вернуть свою корону. Но придет ли на помощь Мерлин? И как далеко может зайти король ради спасения чести своей королевы?</p>
+            </div>
+            <div class="col-3">
+              <div class="bg-light">
+              <h1 class="text-center">26</h1>
+              <p class="text-center">Апреля</p>
+            </div>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Трейлер</button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+</div>
+<div class="col-md-1"></div>
+</div>
+</div>
+<br><br>
+{% endblock %}
+

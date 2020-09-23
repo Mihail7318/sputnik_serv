@@ -1,0 +1,18 @@
+{% load static %}
+
+{% for i in vid %}
+{% if i.view %}
+ <h5 style="color: white;">{{ i.title }}</h5>
+         <video
+ class=”video-js”
+ controls
+ height = "200px" width = "350px"
+ preload="auto"
+ poster="{{ MEDIA_URL }}{{ i.image.url }}"
+ data-setup='{}'>
+
+ <source src="{{ i.file.url }}" type="video/mp4"></source>
+
+</video>
+{% endif %}
+{% endfor %}     
